@@ -1,0 +1,11 @@
+#pagination .page-number{
+    background: #3D4C72!important;
+        /* 渐变色背景 */
+    color: white;
+        /* 文字颜色 */
+    border-radius: 5px;
+        /* 圆角 */
+}
+#aside-content #card-toc .toc-content .toc-link.active{
+    background: #1e4763 !important;
+}

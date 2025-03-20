@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>工具收藏 | Maxwell's Blog</title><meta name="author" content="maxwell"><meta name="copyright" content="maxwell"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="web 前端工具图片类 图片压缩 svg to ico convertio.co 在线图片编辑fotor功能非常强大国内版 背景去除 remove.bg  icon 阿里icons [iconfont]https:&#x2F;&#x2F;www.iconfont.cn&#x2F; 免费icon flaticon 免费icon icones.js 自定义icon生成 favicon.io 免费icon可以导出svg代码 css.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工具收藏">
+<meta property="og:url" content="http://example.com/2025/02/26/tools-bookmark/index.html">
+<meta property="og:site_name" content="Maxwell&#39;s Blog">
+<meta property="og:description" content="web 前端工具图片类 图片压缩 svg to ico convertio.co 在线图片编辑fotor功能非常强大国内版 背景去除 remove.bg  icon 阿里icons [iconfont]https:&#x2F;&#x2F;www.iconfont.cn&#x2F; 免费icon flaticon 免费icon icones.js 自定义icon生成 favicon.io 免费icon可以导出svg代码 css.">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/images/avatar.png">
+<meta property="article:published_time" content="2025-02-26T05:57:48.713Z">
+<meta property="article:modified_time" content="2025-03-20T09:04:59.789Z">
+<meta property="article:author" content="maxwell">
+<meta property="article:tag" content="personal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "工具收藏",
+  "url": "http://example.com/2025/02/26/tools-bookmark/",
+  "image": "http://example.com/images/avatar.png",
+  "datePublished": "2025-02-26T05:57:48.713Z",
+  "dateModified": "2025-03-20T09:04:59.789Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "maxwell",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="http://example.com/2025/02/26/tools-bookmark/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '工具收藏',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: linear-gradient(20deg, #A0A0A0, #E6E6E6,#1C223C, #3A3F5B);"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/Starry_Sky.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Maxwell's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">工具收藏</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">工具收藏</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-02-26T05:57:48.713Z" title="Created 2025-02-26 13:57:48">2025-02-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-03-20T09:04:59.789Z" title="Updated 2025-03-20 17:04:59">2025-03-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="web-前端工具"><a href="#web-前端工具" class="headerlink" title="web 前端工具"></a>web 前端工具</h2><h3 id="图片类"><a href="#图片类" class="headerlink" title="图片类"></a>图片类</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://tinypng.com/">图片压缩</a></li>
+<li>svg to ico <a target="_blank" rel="noopener" href="https://convertio.co/zh/svg-ico/">convertio.co</a></li>
+<li>在线图片编辑<a target="_blank" rel="noopener" href="https://www.fotor.com.cn/">fotor功能非常强大国内版</a></li>
+<li>背景去除 <a target="_blank" rel="noopener" href="https://www.remove.bg/zh/upload">remove.bg</a></li>
+</ul>
+<h3 id="icon"><a href="#icon" class="headerlink" title="icon"></a>icon</h3><ul>
+<li>阿里icons [iconfont]<a target="_blank" rel="noopener" href="https://www.iconfont.cn/">https://www.iconfont.cn/</a></li>
+<li>免费icon <a target="_blank" rel="noopener" href="https://www.flaticon.com/">flaticon</a></li>
+<li>免费icon <a target="_blank" rel="noopener" href="https://icones.js.org/">icones.js</a></li>
+<li>自定义icon生成 <a target="_blank" rel="noopener" href="https://favicon.io/">favicon.io</a></li>
+<li>免费icon可以导出svg代码 <a target="_blank" rel="noopener" href="https://css.gg/icons">css.gg</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">maxwell</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/02/26/tools-bookmark/">http://example.com/2025/02/26/tools-bookmark/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/personal/">personal</a></div><div class="post-share"><div class="social-share" data-image="/images/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/02/26/try-to-use-typescript/" title="前端开发"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">前端开发</div></div><div class="info-2"><div class="info-item-1">2025又开始写前端啦,一些学到的新TIPS😎️ 初试typescrpt🤔️在代码中加入类型标注,增加了部分工作量,但不一定会降低效率,某些开发工具依赖类型系统可以有更好的功能,从而提升开发体验…ts教程npm install -g typescript使用vue-tsc命令进行类型检查，在package.json可以配置在开启 Vite 开发服务器的同时以侦听模式运行 vue-tsc，123456789&quot;scripts&quot;: &#123;  &quot;dev&quot;: &quot;concurrently \&quot;vite\&quot; \&quot;vue-tsc --watch\&quot;&quot;,  // 这里  &quot;build&quot;: &quot;run-p type-check \&quot;build-only &#123;@&#125;\&quot; --&quot;,  &quot;preview&quot;: &quot;vite preview&quot;, ...</div></div></div></a><a class="pagination-related  no-desc" href="/2025/03/07/learn-tensorflow/" title="学习TensorFlow"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">学习TensorFlow</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">maxwell</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#web-%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">web 前端工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">图片类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#icon"><span class="toc-number">1.2.</span> <span class="toc-text">icon</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/07/learn-tensorflow/" title="学习TensorFlow">学习TensorFlow</a><time datetime="2025-03-07T03:27:58.000Z" title="Created 2025-03-07 11:27:58">2025-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/07/watch-deep-dive-into-llms-from-karpathy/" title="笔记:深入了解LLMs(deep dive into llms from Andrej Karpathy)">笔记:深入了解LLMs(deep dive into llms from Andrej Karpathy)</a><time datetime="2025-03-07T03:27:58.000Z" title="Created 2025-03-07 11:27:58">2025-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/26/tools-bookmark/" title="工具收藏">工具收藏</a><time datetime="2025-02-26T05:57:48.713Z" title="Created 2025-02-26 13:57:48">2025-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/26/try-to-use-typescript/" title="前端开发">前端开发</a><time datetime="2025-02-26T05:57:46.269Z" title="Created 2025-02-26 13:57:46">2025-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/issue-pylance-dont-work-with-django-models/" title="issue-pylance-dont-work-with-django-models">issue-pylance-dont-work-with-django-models</a><time datetime="2025-01-01T03:27:58.000Z" title="Created 2025-01-01 11:27:58">2025-01-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/footer.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By maxwell</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

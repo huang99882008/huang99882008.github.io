@@ -1,4 +1,5 @@
 import re
+import os
 import argparse
 import requests
 
@@ -9,10 +10,11 @@ translation_cache = {}
 def translate_word(word):
     if word in translation_cache:
         return translation_cache[word]
+    api_key = os.getenv("DOUBAO_API_KEY")
     # 请求头
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer 81fcd02b-3db4-4285-8890-d891f498ff74"
+        "Authorization": f"Bearer {api_key}"
     }
 
     # 请求体

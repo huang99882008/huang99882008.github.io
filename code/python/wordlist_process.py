@@ -3,9 +3,6 @@ import os
 import argparse
 import requests
 
-# 缓存翻译结果
-translation_cache = {}
-
 
 def translate_word(word):
     if word in translation_cache:
@@ -27,7 +24,7 @@ def translate_word(word):
             },
             {
                 "role": "user",
-                "content": f"请将下列单词{word}翻译成汉语，如果有多个翻译，请用逗号分隔,针对主要的翻译，生成一个例句"
+                "content": f"请将下列单词{word}翻译成汉语，返回信息请按照格式，释义：翻译1,翻译2,..., 例句："
             }
         ]
     }
@@ -37,23 +34,20 @@ def translate_word(word):
     )
     if resp.status_code == 200:
         translated = resp.json()["choices"][0]["message"]["content"]
-        translation_cache[word] = translated
         return translated
     else:
         return word  # fallback
 
 
 def process_line(line):
-    if ":" in line or "<" in line or "-" in line:
+    pattern = re.compile(r'[@:#-<>/$]')
+    if pattern.search(line) or line == "\n":
         return line
-    def replacer(match):
-        word = match.group(0)
-        translation = translate_word(word)
-        return f'<span class="tooltip">{word}<span class="tooltiptext">{translation}</span></span>'
+    line = line.strip()
+    translation = f'<span class="tooltip">{line}<span class="tooltiptext">{translate_word(line)}</span></span>'
 
     # 只处理纯英文单词，忽略代码/链接
-    return re.sub(r"\b[a-zA-Z]{2,}\b", replacer, line).replace("\n", "")
-
+    return translation
 
 def process_file(path):
     with open(path, "r", encoding="utf-8") as infile:

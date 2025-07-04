@@ -3,10 +3,7 @@ import os
 import argparse
 import requests
 
-
 def translate_word(word):
-    if word in translation_cache:
-        return translation_cache[word]
     api_key = os.getenv("DOUBAO_API_KEY")
     # 请求头
     headers = {
@@ -44,7 +41,7 @@ def process_line(line):
     if pattern.search(line) or line == "\n":
         return line
     line = line.strip()
-    translation = f'<span class="tooltip">{line}<span class="tooltiptext">{translate_word(line)}</span></span>'
+    translation = f'<span class="tooltip">{line}<span class="tooltiptext">{translate_word(line)}</span></span>\n'
 
     # 只处理纯英文单词，忽略代码/链接
     return translation
